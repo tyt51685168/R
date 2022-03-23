@@ -92,7 +92,7 @@ who %>% pivot_longer(
 # -------------------------------------------------
 
 # 3. 以下為超特殊情形，欄位沒辦法單純的用分隔符號區分
-# 如果開頭是 dob (date of birth) 那該欄位的值就會是日期；如果開頭是 gebder 那該欄位的值就會是1或2
+# 如果開頭是 dob (date of birth) 那該欄位的值就會是日期；如果開頭是 geder 那該欄位的值就會是1或2
 # 要是直接使用 pivot_longer 會出錯，因為兩種欄位的值資料型態不同
 # 用 names_transform 硬轉資料型態為 char 會過沒錯，但意義上這兩種值要被拆成兩個 variable 看待
 # 這裡介紹一個 pivot_longer (應該也是 tidyr) 的保留字  .value
