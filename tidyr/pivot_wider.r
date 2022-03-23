@@ -57,3 +57,54 @@ warpbreaks %>%
  1 L        44.6  28.2
  2 M        24    28.8
  3 H        24.6  18.8
+
+
+
+
+# 3. 使用多個欄位合併轉置成新的欄位名稱
+
+production
+ # A tibble: 45 × 4
+    product country  year production
+    <chr>   <chr>   <int>      <dbl>
+  1 A       AI       2000      0.264
+  2 A       AI       2001      0.188
+
+# 基本款，在 names_from 的時候直接使用 c() 多個欄位合併
+production %>% pivot_wider(
+  names_from = c(product, country), # 不指定 names_sep 分隔符號的話，預設為底線 _
+  values_from = production
+)
+ # A tibble: 15 × 4
+     year   A_AI    B_AI     B_EI
+    <int>  <dbl>   <dbl>    <dbl>
+  1  2000  0.264 -0.137  -0.134  
+  2  2001  0.188 -0.569   0.00650
+
+# 指定分隔符號跟前綴
+production %>% pivot_wider(
+  names_from = c(product, country), 
+  values_from = production,
+  names_sep = ".", # 分隔符號
+  names_prefix = "prod." # 新增前綴
+)
+ # A tibble: 15 × 4
+     year prod.A.AI prod.B.AI prod.B.EI
+    <int>     <dbl>     <dbl>     <dbl>
+  1  2000     0.264   -0.137   -0.134  
+  2  2001     0.188   -0.569    0.00650
+
+# 自行控制欄位值要塞成怎樣的欄位名稱，將欄位名稱當作變數看待，在 names_glue 中用 {} 去指定字串的哪個位置要放入變數，就是字串列印時可以 % 取變數的概念
+production %>% pivot_wider(
+  names_from = c(product, country), 
+  values_from = production,
+  names_glue = "prod_{product}_{country}"
+)
+#> # A tibble: 15 × 4
+#>     year prod_A_AI prod_B_AI prod_B_EI
+#>    <int>     <dbl>     <dbl>     <dbl>
+#>  1  2000     0.264   -0.137   -0.134  
+#>  2  2001     0.188   -0.569    0.00650
+#>  3  2002    -0.710   -0.508   -0.519 
+
+# source: https://tidyr.tidyverse.org/articles/pivot.html
