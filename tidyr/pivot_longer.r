@@ -63,7 +63,7 @@ billboard %>%
 
 # 2. 當 variable name 有特殊 pattern 要處理，以此例來說，欄位名稱依照底線 _ 區分成三部分
 # names_to 就先指定 variable name 會有三個，接著透過 names_pattern 使用正規表達式取值
-# 得出來的解過就會是第一個底線前的欄位名稱被塞到 "diagnosis" 欄位中當值；中間的部分塞到 "gender" 欄位當值；底線的最後則是塞到 "age" 當值
+# 得出來的結果就會是第一個底線前的欄位名稱被塞到 "diagnosis" 欄位中當值；中間的部分塞到 "gender" 欄位當值；底線的最後則是塞到 "age" 當值
 
 > who
 # A tibble: 7,240 x 60
