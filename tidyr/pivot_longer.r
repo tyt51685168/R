@@ -123,3 +123,7 @@ family %>%
 1      1 child1 1998-11-26      1
 2      1 child2 2000-01-29      2
 3      2 child1 1996-06-22      2
+
+
+
+# https://tidyr.tidyverse.org/articles/pivot.html
