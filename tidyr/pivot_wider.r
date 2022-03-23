@@ -45,7 +45,15 @@ warpbreaks
 
 warpbreaks %>% 
   pivot_wider(
-    names_from = wool, 
-    values_from = breaks,
-    values_fn = list(breaks = mean)
+    names_from = wool, # wool 欄位值作轉置後新的欄位名稱
+    values_from = breaks, # breaks 欄位值作轉置後的值
+    values_fn = list(breaks = mean) 
+   # pivot 時候所作的 aggregation 就想成是 group by ID 後再進行 summarize，此處可想做 group_by tension, summarize A & B 欄位, 方法是 mean
   )
+
+ # A tibble: 3 × 3
+   tension     A     B
+   <fct>   <dbl> <dbl>
+ 1 L        44.6  28.2
+ 2 M        24    28.8
+ 3 H        24.6  18.8
