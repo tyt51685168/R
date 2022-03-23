@@ -1,7 +1,7 @@
-# 以往自己都很習慣用 reshape package 中的 melt & cast function 去進行資料轉置(pivoting)
-# 這裡試著學習使用 tidyr 套件中的 pivot_wider 將資料進行轉置
+### 以往自己都很習慣用 reshape package 中的 melt & cast function 去進行資料轉置(pivoting)
+### 這裡試著學習使用 tidyr 套件中的 pivot_wider 將資料進行轉置
 
-# 1. pivoting without aggregation: 標準的長表格轉寬表格，以下用 fish_encounters 作為示範
+### 1. pivoting without aggregation: 標準的長表格轉寬表格，以下用 fish_encounters 作為示範
 
 fish_encounters
  # A tibble: 114 × 3
@@ -11,7 +11,7 @@ fish_encounters
  2 4842  I80_1       1
  3 4842  Lisbon      1
 
-# 使用 names_from 指定原先哪個欄位要變成新的寬表格欄位；value_from 則是新的寬表格欄位值
+### 使用 names_from 指定原先哪個欄位要變成新的寬表格欄位；value_from 則是新的寬表格欄位值
 fish_encounters %>% pivot_wider(names_from = station, values_from = seen)
 
 # A tibble: 19 × 12
@@ -32,8 +32,8 @@ fish_encounters %>% pivot_wider(
 )
 
 
-# 2. pivoting with aggregation: 轉置時順便將資料進行彙整(aggregate)
-# 使用 values_fn 指定彙整的方式
+### 2. pivoting with aggregation: 轉置時順便將資料進行彙整(aggregate)
+### 使用 values_fn 指定彙整的方式
 
 warpbreaks <- warpbreaks %>% as_tibble() %>% select(wool, tension, breaks)
 warpbreaks
@@ -61,7 +61,7 @@ warpbreaks %>%
 
 
 
-# 3. 使用多個欄位合併轉置成新的欄位名稱
+### 3. 使用多個欄位合併轉置成新的欄位名稱
 
 production
  # A tibble: 45 × 4
@@ -70,7 +70,7 @@ production
   1 A       AI       2000      0.264
   2 A       AI       2001      0.188
 
-# 基本款，在 names_from 的時候直接使用 c() 多個欄位合併
+### 基本款，在 names_from 的時候直接使用 c() 多個欄位合併
 production %>% pivot_wider(
   names_from = c(product, country), # 不指定 names_sep 分隔符號的話，預設為底線 _
   values_from = production
@@ -81,7 +81,7 @@ production %>% pivot_wider(
   1  2000  0.264 -0.137  -0.134  
   2  2001  0.188 -0.569   0.00650
 
-# 指定分隔符號跟前綴
+### 指定分隔符號跟前綴
 production %>% pivot_wider(
   names_from = c(product, country), 
   values_from = production,
@@ -94,17 +94,17 @@ production %>% pivot_wider(
   1  2000     0.264   -0.137   -0.134  
   2  2001     0.188   -0.569    0.00650
 
-# 自行控制欄位值要塞成怎樣的欄位名稱，將欄位名稱當作變數看待，在 names_glue 中用 {} 去指定字串的哪個位置要放入變數，就是字串列印時可以 % 取變數的概念
+### 自行控制欄位值要塞成怎樣的欄位名稱，將欄位名稱當作變數看待，在 names_glue 中用 {} 去指定字串的哪個位置要放入變數，就是字串列印時可以 % 取變數的概念
 production %>% pivot_wider(
   names_from = c(product, country), 
   values_from = production,
   names_glue = "prod_{product}_{country}"
 )
-#> # A tibble: 15 × 4
-#>     year prod_A_AI prod_B_AI prod_B_EI
-#>    <int>     <dbl>     <dbl>     <dbl>
-#>  1  2000     0.264   -0.137   -0.134  
-#>  2  2001     0.188   -0.569    0.00650
-#>  3  2002    -0.710   -0.508   -0.519 
+ # A tibble: 15 × 4
+     year prod_A_AI prod_B_AI prod_B_EI
+    <int>     <dbl>     <dbl>     <dbl>
+  1  2000     0.264   -0.137   -0.134  
+  2  2001     0.188   -0.569    0.00650
+  3  2002    -0.710   -0.508   -0.519 
 
 # source: https://tidyr.tidyverse.org/articles/pivot.html
