@@ -17,7 +17,7 @@ get_z_star = function(alpha) {
 #   d_min: The practical significance level
 #   N: The sample size of each group of the experiment
 # Returns: The beta value of the two-tailed test
-第二個 function：計算 beta 值，用作等下計算 sample size 使用
+第二個 function：計算 beta 值，用作等下計算 sample size 使用，N 越大 SE 越小
 
 *** 這裡特別注意一下 d_min 在課程中指的是最小要觀察到的差異
 *** 那為什麼差異可以被當作平均值傳入計算 beta 的 function 使用呢？
