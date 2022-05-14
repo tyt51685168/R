@@ -62,7 +62,7 @@ required_size = function(s, d_min, Ns=1:20000, alpha=0.05, beta=0.2) {
 這裡第一個例子是控制組已經做完資料蒐集，結果為 p = 0.1
 接著要計算實驗組要抽多少樣本才能夠觀察到 0.02 的差異
 在比較兩個 binomail distribution 的差異時，要計算 pooled probability & pooled standard error
-但這裡我們還沒針對實驗組進行資料蒐集，只能先假設 pooled probability = 控制組的 probability，並假設兩個組別 N = 1 ，
+但這裡我們還沒針對實驗組進行資料蒐集，只能先假設 pooled probability = 控制組的 probability，並假設兩個組別 N = 1 
 
 *** 想法二
 在任何資料都還沒開始蒐集前，先有個 probability 的假設，例如這個例子是 p = 0.1，當然也可以用過往的資料當作假設
