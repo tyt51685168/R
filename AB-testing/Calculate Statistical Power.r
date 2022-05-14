@@ -30,9 +30,25 @@ crit <- qnorm(1-alpha, mu0, sigma)
 # 意即 H1 的資料小於臨界值的所有數值機率加總得到 beta
 # 原回文者是先計算 statistical power 再用 1 - power 的方式得到 beta
 (beta <- pnorm(crit, mu1, sigma, lower.tail = TRUE))
-[0.36124]
+[1] 0.36124
 
 
+
+總結一下 type I error & type II error 的概念：
+
+1.
+type I error 的機率 = 我們在假設檢定之前給定的 significance level（alpha），而 1-alpha = confidence level
+最後就會得到大家常聽到的一句話，在給定 5% 的顯著水準(alpha)之下，我們有 95% 的信心水準確保真值（true value, true mean...）會落在我們目前計算的信賴區間（confidence interval）
+
+實務上我們當然希望 type I error 的機率越小越好，因為不希望偽陽性的狀況發生，這有可能導致信賴區間變大，只能用更大的範圍把真值框出來
+當然如果有更多的資源取得更多的樣本，mean & standard deviation 越精準，即便顯著水準下降了也會得到更窄的信賴區間
+
+2.
+type II error 的機率是必須依賴著 alpha，畢竟我們需要知道臨界值在哪邊，才有辦法計算偽陰性的機率
+
+實務上也希望 type II error 的機率越小越好，而通常的做法就是提高抽樣數量，使實驗組或控制組的 mean & standard deviation 變得更精準
+在 AB testing 中會希望給定一個 beta （跟 alpha 一樣希望被控制在某種程度，通常可接受 beta 20%，statistical power = 80%），
+而一般情況則是在得到所有實驗數據後，檢定虛無假說是否為真的同時，也提供偽陰性的機率
 
 # Reference:
 # https://stats.stackexchange.com/questions/7402/how-do-i-find-the-probability-of-a-type-ii-error
