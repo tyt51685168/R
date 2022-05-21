@@ -190,7 +190,7 @@ print(paste('Is observed prob. within the C.I?: ',
             ifelse(ci[1] < obs & ci[2] > obs, 'Yes, sanity check passed', 'No, sanity check failed')))
 
 
-############ for clicks (assumed equally sign to exp. & cont. groups) ############
+############ for clicks (assumed equally assign to exp. & cont. groups) ############
 
 se <- sqrt(0.5*0.5 / (sum(clicks_cont) + sum(clicks_exp)))
 margin_of_error <- 1.96 * se
@@ -203,7 +203,7 @@ obs <- round(sum(clicks_cont) / (sum(clicks_cont) + sum(clicks_exp)), 4)
 print(paste('Is observed prob. within the C.I?: ', 
             ifelse(ci[1] < obs & ci[2] > obs, 'Yes, sanity check passed', 'No, sanity check failed')))
 
-############ for CTP (assumed equally sign to exp. & cont. groups) ############
+############ for CTP ############
 
 CTP_cont <- sum(clicks_cont) / sum(pageviews_cont)
 CTP_exp <-sum(clicks_exp) / sum(pageviews_exp)
