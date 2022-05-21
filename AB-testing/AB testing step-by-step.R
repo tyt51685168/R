@@ -21,10 +21,10 @@
 
 n_pageviews <- 40000
 n_clicks <- 3200 
-# the number of user-ids
-n_enrolls <- 660 
+n_enrolls <- 660 # the number of user-ids
 click_through_prob <- 0.08
 retention_rate <- 0.53
+
 # the probability of "free trial enrollment" which students click on the button
 gross_conversion_rate <- n_enrolls / n_clicks
 # the probability of making a payment which students enroll the free trial after clicking on the button
