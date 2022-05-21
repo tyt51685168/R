@@ -225,7 +225,7 @@ print(paste('Is observed prob. within the C.I?: ',
 
 
 
-# 5. A/B testing, difference testing for selected metrics, evaluat --------
+# 5. A/B testing, difference testing for selected metrics, evaluating result --------
 ############ for gross_conversion_rate ############ 
 n <- length(enrolls_exp) # the length of enroll & click are different, pick the smaller one
 d_min <- 0.01 # per instruction
