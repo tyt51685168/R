@@ -113,7 +113,6 @@ print(paste('Pageview needed for net_conversion_rate:', 2 * round(req / click_th
 
 
 # 3. Experiment Duration --------------------------------------------------
-
 fraction <- 1 # this means 100% of traffic are used for the experiment
 n_pageview_needed_for_exp <- 4739878
 n_pageview_needed_for_exp / n_pageviews / fraction # takes 119 days to complete the experiment, it's way too long
@@ -191,7 +190,6 @@ print(paste('Is observed prob. within the C.I?: ',
 
 
 ############ for clicks (assumed equally assign to exp. & cont. groups) ############
-
 se <- sqrt(0.5*0.5 / (sum(clicks_cont) + sum(clicks_exp)))
 margin_of_error <- 1.96 * se
 
@@ -204,7 +202,6 @@ print(paste('Is observed prob. within the C.I?: ',
             ifelse(ci[1] < obs & ci[2] > obs, 'Yes, sanity check passed', 'No, sanity check failed')))
 
 ############ for CTP ############
-
 CTP_cont <- sum(clicks_cont) / sum(pageviews_cont)
 CTP_exp <-sum(clicks_exp) / sum(pageviews_exp)
 CTP_pool <- (sum(clicks_cont) + sum(clicks_exp)) / (sum(pageviews_cont) + sum(pageviews_exp))
