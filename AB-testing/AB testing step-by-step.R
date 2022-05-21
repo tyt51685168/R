@@ -1,10 +1,10 @@
 ###########################################################################################
 # This example is provided by the course A/B testing on Udacity.
-# The link below refer to The project instrcution
+# The link below refer to the project instrcution
 # https://docs.google.com/document/u/1/d/1aCquhIqsUApgsxQ8-SQBAigFDcfWVVohLEXcV6jWbdI/pub
 #
 # A quick introduction about this project
-# 1. test a change about asking more questions after click "start free trial" button.
+# 1. test a change about asking more questions after clicking "start free trial" button.
 # 2. the hypothesis is to reduce the number of frustrated students and imporve 
 #    the overall student experience and improve coaches' capacity to support students
 #    who are likely to complete the course
