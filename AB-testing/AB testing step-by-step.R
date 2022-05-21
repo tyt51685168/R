@@ -16,7 +16,7 @@
 # For total 40,000 pageviews, there will be 3200 clicks of "start free trial" button
 # which means 8% click-through-probability (CTP)
 
-# The retention rate refers to the probability of student remain enrolled after 14-days free trial
+# The retention rate refers to the probability of students remain enrolled after 14-days free trial
 # (and thus make at least one payment)
 
 n_pageviews <- 40000
